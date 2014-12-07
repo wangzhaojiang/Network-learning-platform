@@ -31,7 +31,7 @@ DROP TABLE IF EXISTS `user_info`;
 
 CREATE TABLE `user_info` (
 	uid         INT UNSIGNED  PRIMARY KEY AUTO_INCREMENT NOT NULL, 
-	name        CHAR(10)  NOT NULL,
+	name        CHAR(10) UNIQUE  NOT NULL,
 	permisson   INT(1)    NOT NULL DEFAULT 0,
 	password    CHAR(32)  NOT NULL, 
 	sex         INT(1)   NOT NULL  CHECK(sex=0 or sex=1), 
