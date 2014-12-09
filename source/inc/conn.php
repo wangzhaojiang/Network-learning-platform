@@ -33,11 +33,17 @@ class Nlpdb{
             return $this->result;
         }
 
-        if (is_object($this->result) and $this->result -> num_rows > 0){
+        if (is_object($this->result)){
+            if ($this->result -> num_rows > 0){
             while( $row = $this->result -> fetch_assoc() )
                 $array[] = $row;
             return $array;
+            }
+            else{
+                return false;
+            }
         }
+        
 
         return $this->result;
 
