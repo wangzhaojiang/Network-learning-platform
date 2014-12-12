@@ -9,7 +9,7 @@ class Nlpdb{
 	{
 		$hostname = "localhost";
 		$dbuser = "root";
-		$dbpwd = "notamaiba";
+		$dbpwd = "douniwan";
 		$dbname = "jaker_me";
 		$charName = "utf8";
 
