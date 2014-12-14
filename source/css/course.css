@@ -1,0 +1,86 @@
+aside .profile-wrapper {
+    border-bottom: 1px solid #dadfe1;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+aside .profile-info {
+    padding: 20px 0px;
+}
+aside .profile-info .username {
+    width: 110px;
+    display: inline-block;
+}
+aside .profile-info .rank {
+    width: 110px;
+    display: inline-block;
+    font-size: 14px;
+}
+aside .profile-info .avatar {
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+    border-radius: 100%;
+    overflow: hidden;
+}
+aside .profile-info .avatar img {
+    width: 100%;
+    height: auto;
+}
+
+aside .profile-wrapper .btn-upgrade {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+aside .aside-navigation {
+    display: block;
+    letter-spacing: 1px;
+}
+aside .aside-navigation section {
+    margin-bottom: 30px;
+}
+aside .aside-navigation section:last-child {
+    margin-bottom: 0px;
+}
+.aside-navigation .activity .activity-title {
+    margin-bottom: 5px;
+    color: #99a2a2;
+}
+.aside-navigation .activity .activity-list li {
+    line-height: 27px;
+}
+.aside-navigation .activity-list li a {
+    display: block;
+    line-height: 27px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.aside-navigation .activity-list li.active,
+.aside-navigation .activity-list li.active:hover{
+    color: #ee7c4a;
+    font-weight: 600;
+}
+.aside-navigation .activity-list li:hover {
+    color: #9aa3a3;
+}
+aside .aside-video-preview {
+
+}
+aside .aside-video-preview .video-thumbnail {
+    width: 100%;
+    height: 100px;
+    background-color: #eeeeee;
+}
+
+
+.course-list {
+}
+.course-list .course-wrapper {
+    margin: 30px 15px;
+}
+
+.course-list .course-item {
+    width: 200px;
+    height: 100px;
+    background-color: #555555;
+}
