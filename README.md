@@ -13,7 +13,7 @@ Network-learning-platform
  
  	该项目的**源代码**
 
-	>config.php 
+	>conf 
 	>>全局配置文件，配置当前站点的相关信息，如：数据库信息、站点所在绝对路径、站点域名，Smarty路径等等
 
 	>smarty.php
