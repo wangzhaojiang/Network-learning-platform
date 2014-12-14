@@ -1,0 +1,227 @@
+
+.pull-left {
+    float: left;
+}
+.pull-right {
+    float: right;
+}
+.hidden {
+    display: none;
+}
+.modal {
+    z-index: 100;
+    border-radius: 3px;
+}
+.modal.shadow {
+    padding: 3px;
+    background-color: rgba(238,238,238,0.7);
+}
+.modal .inner-modal {
+    padding: 10px;
+    border: #dadfe1 1px solid;
+    border-radius: 3px;
+    background-color: rgb(255,255,255);
+}
+.modal .inner-modal .modal-header {
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #dadfe1;
+	color: #9AA3A3;
+	font-size: 16px;
+}
+.modal .inner-modal .modal-body {
+	color: #ADADAD;
+}
+.modal .inner-modal .modal-footer {
+	margin-top: 10px;
+	padding-top: 8px;
+	border-top: 1px solid #dadfe1;
+	color: #9AA3A3;
+	font-size: 14px;
+}
+
+.modal .inner-modal .arrow {
+    position: relative;
+}
+.modal .arrow:before,
+.modal .arrow:after {
+    height: 0;
+    width: 0;
+    display: block;
+    position: absolute;
+    content: " ";
+    border-color: transparent;
+    border-style: solid;
+}
+.modal .arrow-up:before {
+	top: -22px;
+    left: -15px;
+	border-width: 8px;
+    border-top-width: 0;
+    border-bottom-color: rgba(238,238,238,0.7);
+}
+.modal .arrow-up:after {
+	top: -17px;
+    left: -14px;
+    border-width: 7px;
+    border-top-width: 0;
+    border-bottom-color: #fff;	
+}
+.modal .arrow-left:before {
+	top: 3px;
+    left: -22px;
+	border-width: 8px;
+    border-left-width: 0;
+    border-right-color: rgba(238,238,238,0.7);
+}
+.modal .arrow-left:after {
+	top: 4px;
+    left: -17px;
+    border-width: 7px;
+    border-left-width: 0;
+    border-right-color: #fff;	
+}
+
+.circle {
+	border-radius: 50%;
+	overflow: hidden;
+}
+.circle img {
+	width: 100%;
+	height: 100%;
+}
+.btn {
+    height: 38px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    border: 0;
+    cursor: pointer;
+    color: #fff;
+    outline: 0;
+    font-family: "微软雅黑";
+    text-align: center;
+    letter-spacing: 3px;
+    font-size: 18px;
+    line-height: 38px;
+    border-radius: 3px;
+    border-bottom: 1px solid;
+    -webkit-font-smoothing: antialiased;
+    -webkit-appearance: none;
+}
+.btn-block {
+    width: 100%;
+    display: block;
+}
+.btn-green {
+    background: #57ca8e;
+    border-bottom-color: #39b574;
+}
+.btn-orange {
+    background: #ee7c4a;
+    border-bottom-color: #df714b;
+}
+.btn-blue {
+    color: #fff;
+    background: #3b5998;
+    border-bottom-color: #324b80;
+}
+.form-data,
+.form-control {
+	width: 100%;
+    height: 38px;
+    box-sizing: border-box;
+    padding: 0 10px;
+    color: #ADADAD;
+    background-color: #fff;
+    border: #dadfe1 1px solid;
+    border-radius: 3px;
+    font-size: 14px;
+}
+input[type='radio'].form-control {
+	width: 50px;
+	height: 20px;
+	border: #dadfe1 1px solid;
+}
+.form-data {
+	border: 0;
+	line-height: 38px;
+}
+.form-control:active,
+.form-control:focus,
+.form-control:active {
+    outline: 0;
+    -moz-outline-style: none;
+    border: #63b6be 1px solid
+}
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+    border: 1px solid #cccccc;
+}
+textarea.form-control {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	resize: none;
+}
+.form-label {
+	width: 80px;
+	height: 38px;
+	display: block;
+	box-sizing: border-box;
+	padding: 0 10px;
+	color: #ADADAD;
+	font-size: 14px;
+	letter-spacing: 2px;
+	line-height: 38px;
+	text-align: center;
+}
+.form-control-group {
+	height: 38px;
+	display: block;
+}
+.form-control-group:after {
+	height: 1px;
+	width: 1px;
+	display: block;
+	visibility: hidden;
+	content: '.';
+}
+.form-control-group .form-label,
+.form-control-group .form-control,
+.form-control-group .form-data,
+.form-control-group .form-control-group {
+	float: left;
+}
+.video-preview {
+    position: relative;
+    display: block;
+}
+.video-preview a {
+
+}
+.video-preview:before {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    content: "";
+    display: block;
+    margin: -20px 0 0 -20px;
+    border-radius: 20px;
+    background-color: rgba(20,20,20,0.6);
+    z-index: 1;
+}
+.video-preview:after {
+    width: 0;
+    height: 0;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    content: "";
+    margin: -9px 0 0 -6px;
+    border-top: 9px solid transparent;
+    border-bottom: 9px solid transparent;
+    border-left: 15px solid rgba(255,255,255,0.9);
+    z-index: 2;
+}

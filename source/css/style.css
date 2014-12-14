@@ -1,0 +1,149 @@
+.page-content-nav {
+	margin-bottom: 40px;
+	border-bottom: 1px solid #C0C0C0;
+}
+.page-content-nav ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.page-content-nav ul:after {
+	width: 0;
+	height: 0;
+	display: block;
+	visibility: hidden;
+	clear: both;
+	content: '.';
+}
+.page-content-nav ul>li {
+	float: left;
+	margin: 0 10px -1px 0;
+	padding: 5px 10px;
+	border-bottom: 3px transparent;
+}
+.page-content-nav ul>li.active,
+.page-content-nav ul>li:active,
+.page-content-nav ul>li:hover,
+.page-content-nav ul>li:focus {
+		border-bottom: 3px solid #63b6be;
+}
+.sign-in-form-wrapper,
+.sign-up-form-wrapper,
+.forgot-pwd-form-wrapper {
+    width: 350px;
+    margin: auto auto;
+}
+.form-title {
+    text-align: center;
+    letter-spacing: 3px;
+    font-size: 22px;
+    margin-bottom: 30px;
+}
+form fieldset {
+    margin-bottom: 28px;
+}
+form fieldset:last-child {
+	margin-bottom: 0;
+}
+.sign-in-form-wrapper .switch-wrapper,
+.sign-up-form-wrapper .switch-wrapper,
+.forgot-pwd-form-wrapper .switch-wrapper {
+    margin: 28px 0px 20px 0px;
+    border-top: 1px solid #dadfe1;
+    padding-top: 28px;
+}
+.sign-in-form-wrapper .switch-wrapper a.link,
+.sign-up-form-wrapper .switch-wrapper a.link {
+    color: #797f7f;
+    text-decoration: underline;
+}
+
+/*user profile*/
+.user-info-form-wrapper,
+.user-info-display-wrapper {
+	width: 420px;
+	margin: auto auto;
+}
+.user-info-form-wrapper .form-data,
+.user-info-form-wrapper .form-control,
+.user-info-form-wrapper .btn-submit,
+.user-info-form-wrapper .btn-edit {
+	width: 300px;
+}
+.user-info-form-wrapper .btn-submit,
+.user-info-form-wrapper .btn-edit {
+	margin-left: 80px;
+}
+.user-info-form-wrapper .form-control,
+.user-info-form-wrapper .btn-submit {
+	display: none;
+}
+
+/*user message*/
+.user-message-list-wrapper .message-item:before {
+	width: 4px;
+	position: absolute;
+	left: 28px;
+	top: 72px;
+	bottom: -20px;
+	z-index: -1;
+	content: ' ';
+	background-color: #dadfe1;
+}
+.user-message-list-wrapper .message-item:last-child:before {
+	visibility: hidden;
+}
+.user-message-list-wrapper .message-item {
+		position: relative;
+		margin-bottom: 20px;
+}
+.user-message-list-wrapper .message-item:first-child {
+	display: none;
+}
+.user-message-list-wrapper .message-item .user-info {
+	width: 60px;
+	float: left;
+}
+.user-message-list-wrapper .message-item .avatar {
+	width: 40px;
+	height: 40px;
+	margin: 5px auto 0 auto;
+}
+.user-message-list-wrapper .message-item .user-name {
+	padding: 5px 0;
+	color: #ADADAD;
+	text-align: center;
+}
+.user-message-list-wrapper .message-item .message-modal {
+	margin-left: 60px;
+}
+.user-message-list-wrapper .message-item .reply-form-control {
+	display: none;
+}
+.user-message-list-wrapper .message-item .btn-reply,
+.user-message-list-wrapper .message-item .btn-delete {
+	padding: 0 10px;
+	cursor: pointer;
+}
+.modal-reply-message {
+	width: 500px;
+	margin-left: -120px;
+	position: fixed;
+	top: 120px;
+	left: 50%;
+	z-index: 100;
+	display: none;
+}
+.modal-reply-message textarea {
+	height: 100px;
+}
+.modal-reply-message .btn-cancel,
+.modal-reply-message .btn-reply {
+	height: 25px;
+	margin-left: 10px;
+	padding: 0 10px;
+	font-size: 14px;
+	letter-spacing: 1px;
+	line-height: 25px;
+	
+}

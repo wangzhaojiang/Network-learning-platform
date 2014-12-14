@@ -1,0 +1,222 @@
+.clearfix {
+    zoom: 1;
+}
+
+.clearfix:after {
+    height: 0px;
+    clear: both;
+    content: '.';
+    display: block;
+    visibility: hidden;
+}
+.clearfix {
+    zoom: 1;
+}
+
+.clearfix:after {
+    height: 0px;
+    clear: both;
+    content: '.';
+    display: block;
+    visibility: hidden;
+}
+body {
+    margin: 0;
+    padding: 0;
+    color: #494d55;
+    font-family: "Microsoft Yahei", "微软雅黑", Tahoma, Arial, STHeiti, sans-serif;
+    line-height: 1.5em;
+    font-size: 14px;
+    font-weight: 400;
+    text-rendering: optimizeLegibility;
+}
+
+header {
+    width: 100%;
+    min-width: 960px;
+    min-height: 80px;
+    margin-bottom: 20px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 99;
+    background-color: #fff;
+    border-bottom: #dadfe1 1px solid;
+}
+
+header .navigation {
+    padding: 0 24px;
+}
+header .logo {
+    margin-right: 30px;
+}
+header .logo a {
+    display: block;
+    padding: 30px 0;
+    margin-bottom: -30px;
+}
+header .logo a img {
+    display: block;
+}
+
+header .navigation .menu {
+    margin-right: 10px;
+    position: relative;
+}
+header .navigation .menu ul {
+    list-style: none;
+}
+header .navigation .menu-item {
+    position: relative;
+    float: left;
+}
+header .navigation .menu-item.first {
+
+}
+header .navigation .menu-item:hover,
+header .navigation .menu-item.active>a{
+    color: #ee7c4a;
+}
+header .navigation .menu-item a {
+    padding: 10px 20px;
+    color: inherit;
+    line-height: 80px;
+    text-decoration: none;
+}
+header .navigation .menu-item.fa-drop-down:after {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    margin-top: -10px;
+    font-size: 10px;
+    font-family: FontAwesome;
+    content: "\f078";
+}
+header .navigation .menu .course-drop-down {
+    width: 200px;
+    position: absolute;
+    left: 0px;
+    top: 60px;
+    display: none;
+}
+header .navigation .menu .course-drop-down .arrow {
+    margin-left: 100px;
+}
+header .navigation-right .search-input {
+    width: 100px;
+    height: 30px;
+    margin: 24px 10px;
+    display: inline-block;
+}
+header .navigation-right .link-profile {
+}
+header .navigation-right .username {
+    padding: 0 15px;
+    line-height: 80px;
+}
+header .navigation-right .avatar {
+    width: 50px;
+    height: 50px;
+    margin-top: 15px;
+    border-radius: 100%;
+    overflow: hidden;
+}
+header .navigation-right .avatar img {
+    width: 100%;
+    height: auto;
+}
+
+header .navigation-right .drop-down-list {
+    width: 130px;
+    position: absolute;
+    right: 0px;
+    top: 70px;
+    display: none;
+}
+header .navigation-right .drop-down-list .arrow-custom {
+    margin-left: 50%;
+}
+header .navigation-right .drop-down-list ul {
+    list-style: none;
+    padding: 10px;
+}
+
+header .navigation-right .drop-down-list ul>li {
+    text-align: center;
+}
+
+header .navigation-right .drop-down-list ul>li a {
+    font-size: 16px;
+    line-height: 30px;
+    text-decoration: none;
+}
+header .navigation-right .link-sign-in {
+    padding: 0 15px;
+    line-height: 80px;
+}
+header .navigation-right .btn-sign-up {
+    height: 30px;
+    line-height: 30px;
+    margin: 24px 10px;
+    padding: 0px 20px;
+}
+aside {
+    padding: 5px;
+    background-color: rgba(255,255,255,0.3);
+    overflow: hidden;
+}
+
+.page-wrapper {
+    position: relative;
+    margin-top: 120px;
+}
+
+.center-grid {
+    width: 930px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+.center-grid aside {
+    width: 180px;
+    min-height: 10px;
+    margin: 0px 60px 0px 0px;
+    padding: 0px;
+    float: left;
+}
+.center-grid section.page-content {
+    width: 690px;
+    min-height: 10px;
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    float: left;
+}
+
+footer {
+    width: 100%;
+    min-width: 960px;
+    min-height: 80px;
+    margin: 100px 0 0;
+    text-align: center;
+    background-color: #fff;
+    border-top: #dadfe1 1px solid;
+}
+footer ul {
+    list-style: none;
+    padding: 30px 20px;
+    display: inline-block;
+}
+footer ul li {
+    line-height: 20px;
+    float: left;
+}
+footer ul>li:after {
+    width: 20px;
+    display: inline-block;
+    content: '.';
+    text-align: center;
+}
+footer ul>li:last-child:after {
+    display: none;
+}
