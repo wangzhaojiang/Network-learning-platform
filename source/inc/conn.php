@@ -42,11 +42,14 @@ class Nlpdb{
                 $array[] = $row;
             return $array;
             }
+            else if ($this->result->num_rows == 0){
+                return 'nothing';
+            }
             else{
                 return false;
             }
         }
-        
+
 
         return $this->result;
 
