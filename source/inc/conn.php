@@ -1,5 +1,5 @@
 <?php
-require_once("get_conf.php");
+require_once("get_conf.class.php");
 class Nlpdb{
 	
 	private $db;
