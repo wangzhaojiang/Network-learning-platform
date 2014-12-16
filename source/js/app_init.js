@@ -1,4 +1,8 @@
 $(document).ready(function() {
+        // 设置page-wrapper高度
+    var height = $(window).height() - $('footer').height() - $('header').height() - 10;
+    $('.page-wrapper').css('min-height', height);
+
     $('.navigation .menu .fa-drop-down').click(function(){
         var status= $('.navigation .menu .course-drop-down').css('display');
         if (status == 'block') {
