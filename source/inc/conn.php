@@ -1,5 +1,5 @@
 <?php
-require_once("get_conf.php");
+require_once("get_conf.class.php");
 class Nlpdb{
 	
 	private $db;
@@ -42,11 +42,14 @@ class Nlpdb{
                 $array[] = $row;
             return $array;
             }
+            else if ($this->result->num_rows == 0){
+                return 'nothing';
+            }
             else{
                 return false;
             }
         }
-        
+
 
         return $this->result;
 
