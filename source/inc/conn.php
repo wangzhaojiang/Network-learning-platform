@@ -1,4 +1,5 @@
 <?php
+require_once("get_conf.class.php");
 class Nlpdb{
 	
 	private $db;
@@ -7,11 +8,13 @@ class Nlpdb{
 	
 	function __construct()
 	{
-		$hostname = "localhost";
-		$dbuser = "root";
-		$dbpwd = "notamaiba";
-		$dbname = "jaker_me";
-		$charName = "utf8";
+        $conf = new Get_conf();
+        $param = $conf->get_content();
+		$hostname = $param["database_host"];
+		$dbuser = $param["database_user"];
+		$dbpwd = $param["database_passwd"];
+		$dbname = $param["database_db"];
+		$charName = $param["database_charname"];
 
 		$this->db = new mysqli($hostname, $dbuser, $dbpwd, $dbname);
 
@@ -39,11 +42,14 @@ class Nlpdb{
                 $array[] = $row;
             return $array;
             }
+            else if ($this->result->num_rows == 0){
+                return 'nothing';
+            }
             else{
                 return false;
             }
         }
-        
+
 
         return $this->result;
 
