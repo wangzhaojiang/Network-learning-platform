@@ -1,4 +1,13 @@
+//表单字段验证
 var FormUtil = {
+    checkCommon: function(str) {
+       var pattern = /^[^\s.]+$/;
+        return pattern.test(str);        
+    },
+    checkUserName: function(str) {
+       var pattern = /^[^\s.]+$/;
+        return pattern.test(str);        
+    },
     checkEmail: function(str) {
         var pattern = /^.*@.*\..*$/;
         return pattern.test(str);
@@ -8,7 +17,7 @@ var FormUtil = {
     	return pattern.test(str); 
     },
     checkPwd: function(str) {
-        var pattern = /^[^\s.]*$/;
+        var pattern = /^[^\s.]+$/;
         return pattern.test(str);
     }
 };
