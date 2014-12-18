@@ -25,7 +25,7 @@ class Relation{
         $result = $this->conn->query($query_str);
 
         if ($result != 'nothing'){
-            return array("result" => false, "error" => "can't follow a man again");
+            return array("status" => false, "error" => "can't follow a man again");
         }
 
 		$query_str = "insert into `user_relation`(fromuid, touid) value('$this->fromuid', '$touid')";
@@ -35,10 +35,10 @@ class Relation{
 		$result = $this->conn->query($query_str, $sql_error);
 
         if ($result == false){
-            return array("result" => false, "error" => "follow error");
+            return array("status" => false, "error" => "follow error");
         }
         else{
-            return array("result" => true);   
+            return array("status" => true);   
         }
 		
 	}
@@ -56,7 +56,7 @@ class Relation{
         $result = $this->conn->query($query_str);
 
         if ($result != 'nothing'){
-            return array("result" => false, "error" => "you don't follow this guy");
+            return array("status" => false, "error" => "you don't follow this guy");
         }
 		
 		$query_str = "delete from  `user_relation` where fromuid = '$this->fromuid' and touid = '$touid'";
@@ -66,10 +66,10 @@ class Relation{
 		$result = $this->conn->query($query_str);
 
         if ($result == false){
-            return array("result" => false, "error" => "cancel follow error");
+            return array("status" => false, "error" => "cancel follow error");
         }
         else{
-            return array("result" => true);
+            return array("status" => true);
         }
 
 	}
@@ -81,7 +81,7 @@ class Relation{
 	 */
 	public function cat_relation($tag) { 
 		if (($tag != 0 && $tag != 1))  {
-			return array("result" => false, "error" => "tag error");
+			return array("status" => false, "error" => "tag error");
 		}
 		
 		if ($tag == 0) {
@@ -93,13 +93,13 @@ class Relation{
 
 			if ($result == false) {
 				
-				return array("result" => false, "error" => "cat follow error");
+				return array("status" => false, "error" => "cat follow error");
 			}
             else if ($result == 'nothing'){
-                return array("result" => true, "content" => null);
+                return array("status" => true, "content" => null);
             }
             else{
-			    return array("result" => true, "content" => $result);
+			    return array("status" => true, "content" => $result);
             
             }
 			
@@ -113,13 +113,13 @@ class Relation{
 
 			if ($result == false) {
 				
-				return array("result" => false, "error" => "cat fans error");
+				return array("status" => false, "error" => "cat fans error");
 			}
             else if ($result == 'nothing'){
-                return array("result" => true, "content" => null);
+                return array("status" => true, "content" => null);
             }
             else{
-                return array("result" => true, "content" => $result);
+                return array("status" => true, "content" => $result);
             }
 
 		}
@@ -133,7 +133,7 @@ class Relation{
 	 */
 	public function count_relation($tag) {
 		if (($tag != 0 && $tag != 1))  {
-			return array("result" => false, "error" => "tag error");
+			return array("status" => false, "error" => "tag error");
 		}
 		
 		if ($tag == 0) {
@@ -143,13 +143,13 @@ class Relation{
 			$result = $this->conn->query($query_str, $sql_error);
 
 			if ($result == false) {
-				return array("result" => false, "error" => "count follow error");
+				return array("status" => false, "error" => "count follow error");
 			}
             else if ($result == 'nothing'){
-                return array("result" => true, "content" => 0);
+                return array("status" => true, "content" => 0);
             }
             else{
-			    return array("result" => true, "content" => (int)$result[0]["count(uid)"]);
+			    return array("status" => true, "content" => (int)$result[0]["count(uid)"]);
             }
 		}
 
@@ -160,13 +160,13 @@ class Relation{
 			$result = $this->conn->query($query_str, $sql_error);
 
 			if ($result == false) {
-				return array("result" => false, "error" => "count fans error");
+				return array("status" => false, "error" => "count fans error");
 			}
             else if ($result == 'nothing'){
-                return array("result" => true, "content" => 0);
+                return array("status" => true, "content" => 0);
             }
             else{
-			    return array("result" => true, "content" => (int)$result[0]["count(uid)"]);
+			    return array("status" => true, "content" => (int)$result[0]["count(uid)"]);
             
             }
 			

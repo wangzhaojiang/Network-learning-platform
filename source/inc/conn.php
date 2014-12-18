@@ -32,7 +32,7 @@ class Nlpdb{
         #var_dump($sql_str);
         $this->result = $this->db->query($sql_str);
         if ($this->result == false){
-            echo $sql_error;
+            #echo $sql_error;
             return $this->result;
         }
 
