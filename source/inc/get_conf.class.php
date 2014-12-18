@@ -14,7 +14,7 @@ class Get_conf{
             $line = trim(fgets($file));
             #echo $line;
             if (!empty($line) and $line[0] != "#"){
-                list($key, $value) = split('=', $line);
+                list($key, $value) = @split('=', $line);
                 $key = trim($key, "' \"");
                 $value = trim($value, "' \"");
                 $array[$key] = $value;
