@@ -51,6 +51,13 @@ class Relation{
 		#if (!is_numeric($from_uid) || !is_numeric($to_uid) || ($from_uid == $to_uid)) {
 		#	return false;
 		#}
+        $query_str = "select fromuid, touid from user_relation where fromuid = $this->fromuid and touid = $touid";
+
+        $result = $this->conn->query($query_str);
+
+        if ($result != 'nothing'){
+            return array("result" => false, "error" => "you don't follow this guy");
+        }
 		
 		$query_str = "delete from  `user_relation` where fromuid = '$this->fromuid' and touid = '$touid'";
 		
@@ -78,7 +85,7 @@ class Relation{
 		}
 		
 		if ($tag == 0) {
-			$query_str = "select uid, name, logo, sign from `user_info`  where user_info.uid = any(select touid from `user_relation` where fromuid = '$this->fromuid' )";
+			$query_str = "select uid, name, logo, sign, school from `user_info`  where user_info.uid = any(select touid from `user_relation` where fromuid = '$this->fromuid' )";
 
 			$sql_error = "cat_relation sql error";
 
@@ -96,11 +103,10 @@ class Relation{
             
             }
 			
-			
 		}
 
 		if ($tag  == 1) {
-			$query_str = "select uid, name, logo, sign from `user_info`where user_info.uid = any(select fromuid from `user_relation` where touid = '$this->fromuid')";
+			$query_str = "select uid, name, logo, sign, school from `user_info`where user_info.uid = any(select fromuid from `user_relation` where touid = '$this->fromuid')";
 			
 			$sql_error = "cat_relation sql error";
 			$result = $this->conn->query($query_str, $sql_error);
@@ -167,6 +173,21 @@ class Relation{
 		}
 		
 	}
+
+    //获取当前操作用户和所访问的目标用户， 操作用户是否关注目标用户
+    public function get_relation($touid){
+        $query_str ="select rid from user_relation where fromuid = $this->fromuid and touid = $touid";
+        $sql_error = "get_relation error";
+
+        $result = $this->conn->query($query_str, $sql_error);
+
+        if ($result == 'nothing'){              
+            return 0;           //不存在关系
+        }
+        else{
+            return 1;           //存在关系
+        }
+    }
 
 	
 	function __destruct()
