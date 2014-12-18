@@ -18,17 +18,26 @@
         <div class="menu pull-left">
             <ul class="clearfix">
                 <li class="menu-item first active"><a href="index.html">首页</a></li>
-                <li class="menu-item menu-course fa-drop-down"><a href="#">课程</a></li>
+                <li class="menu-item menu-course menu-drop-down"><a href="#">课程</a></li>
                 <li class="menu-item"><a href="index.html">求课</a></li>
             </ul>
-            <div class="modal shadow course-drop-down">
+            <div class="modal shadow course-drop-down-modal">
                 <div class="inner-modal">
                     <div class=" arrow-up arrow"></div>
-                    <ul>
-                        <li><a href="#">个人中心</a></li>
-                        <li><a href="#">我的课程</a></li>
-                        <li><a href="#">退出登录</a></li>
-                    </ul>
+                    <div class="modal-body clearfix">
+                        <ul class="category-list pull-left">
+                            <li><a href="#">计算机</a></li>
+                            <li><a href="#">数学</a></li>
+                            <li><a href="#">通信</a></li>
+                        </ul>
+                        <ul class="course-list pull-left">
+                            <li><a href="#">操作系统</a></li>
+                            <li><a href="#">微机原理</a></li>
+                            <li><a href="#">计算机组成原理</a></li>
+                            <li><a href="#">通信原理</a></li>
+                            <li><a href="#">模拟电路</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -59,32 +68,26 @@
     </div>
 </header>
 <section class="page-wrapper">
-    <section class="normal-form-wrapper">
+    <section class="form-wrapper">
         <div class="form-title">登录</div>
         <form method="post" action="">
-            <div class="form-control-group">
-                <div class="form-input-wrapper">
-                    <input type="text" name="email" class="form-control" placeholder="邮箱" tabindex="1"/>
-                </div>
+            <div class="form-control-group form-tips-wrapper">
+             	<div class="well well-warning">错误提示框</div>
             </div>
             <div class="form-control-group">
-                <div class="form-input-wrapper">
-                    <input type="password" name="password" class="form-control" placeholder="密码" tabindex="2"/>
-                </div>
+             	<input type="text" name="email" class="form-control" placeholder="邮箱" tabindex="1"/>
             </div>
             <div class="form-control-group">
-            	<input type="submit" class="btn btn-block btn-orange btn-submit" value="登录" tabindex="3"/>
+                <input type="password" name="password" class="form-control" placeholder="密码" tabindex="2"/>
+            </div>
+            <div class="form-control-group">
+            	<input type="submit" class="btn btn-block btn-green btn-submit" value="登录" tabindex="3"/>
             </div>
         </form>
-        <div class="switch-wrapper clearfix">
-            <div class="forgot-password pull-left">
-                <a class="link" href="tpl_forgot_password.html">忘记密码?</a>
-            </div>
-            <div class="sign-up pull-right">
-            	没有帐号？
-                <a class="link" href="tpl_sign_up.html">注册</a>
-            </div>
-        </div>
+        <div class="form-separator"></div>
+        <a class="btn btn-block btn-blue" href="tpl_sign_up.html">注册</a>
+        <div class="form-separator"></div>
+        <a class="btn btn-block btn-orange" href="tpl_forgot_password.html">找回密码</a>
     </section>
 </section>
 <footer>
@@ -97,6 +100,7 @@
 </footer>
 </body>
 <script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/jquery.md5.js"></script>
 <script type="text/javascript" src="../plugins/bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript" src="../plugins/jQueryFullPage/js/jquery.fullPage.min.js"></script>
 
@@ -104,21 +108,35 @@
 <script type="text/javascript" src="../js/app_init.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
-        // 设置page-wrapper高度
-        var height = $(window).height() - $('footer').height() - $('header').height() - 10;
-        $('.page-wrapper').css('min-height', height);
+        function showErrTips(msg) {
+            $('.form-tips-wrapper .well').html(msg);
+            $('.form-tips-wrapper').fadeIn(500);
+        }
 
-        $('.form-wrapper .btn-submit').click(function() {
-            /* Act on the event */
+        $('.btn-submit').click(function() {
+            var mailVal = $('[name="email"]').val();
+            var pwdVal = $('[name="password"]').val();
+            if (FormUtil.checkEmail(mailVal) == false) {
+                showErrTips("请输入正确的邮箱");
+                return false;
+            } else if (FormUtil.checkPwd(pwdVal) == false) {
+                showErrTips("请输入正确的密码");
+                return false;
+            }
+
             var params = {
-                mail: $('[name="email"]').val(),
-                password: $('[name="password"]').val()
+                mail: mailVal,
+                password: $.md5(pwdVal)
             };
+
             $.post('../server/login.server.php', params, function(data) {
+                console.log(data);
                 var result = JSON.parse(data);
 
                 if (result.status == 'true') {
-                    location.href = 'index.html';
+                    location.href = 'tpl_user_profile.html';
+                } else {
+                    showErrTips(result.data);
                 }
             });
             return false;
