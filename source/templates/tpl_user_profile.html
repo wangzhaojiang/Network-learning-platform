@@ -21,17 +21,26 @@
         <div class="menu pull-left">
             <ul class="clearfix">
                 <li class="menu-item first active"><a href="index.html">首页</a></li>
-                <li class="menu-item menu-course fa-drop-down"><a href="#">课程</a></li>
+                <li class="menu-item menu-course menu-drop-down"><a href="#">课程</a></li>
                 <li class="menu-item"><a href="index.html">求课</a></li>
             </ul>
-            <div class="modal shadow course-drop-down">
+            <div class="modal shadow course-drop-down-modal">
                 <div class="inner-modal">
                     <div class=" arrow-up arrow"></div>
-                    <ul>
-                        <li><a href="#">个人中心</a></li>
-                        <li><a href="#">我的课程</a></li>
-                        <li><a href="#">退出登录</a></li>
-                    </ul>
+                    <div class="modal-body clearfix">
+	                    <ul class="category-list pull-left">
+	                        <li><a href="#">计算机</a></li>
+	                        <li><a href="#">数学</a></li>
+	                        <li><a href="#">通信</a></li>
+	                    </ul>
+	                    <ul class="course-list pull-left">
+	                    	<li><a href="#">操作系统</a></li>
+	                    	<li><a href="#">微机原理</a></li>
+	                    	<li><a href="#">计算机组成原理</a></li>
+	                    	<li><a href="#">通信原理</a></li>
+	                    	<li><a href="#">模拟电路</a></li>
+	                    </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -111,7 +120,7 @@
         			<li><a href="tpl_user_message.html">我的私信</a></li>
         		</ul>
         	</section>
-			<div class="labelled-form-wrapper">
+			<div class="profile-form-wrapper">
 				<form method="post" action="">
 					<div class="form-control-group">
 						<label class="form-label">昵称</label>
@@ -178,18 +187,28 @@
 
 <script type="text/javascript">
 	$(document).ready(function () {
-		$('.labelled-form-wrapper .btn-submit').click(function () {
-			$('.labelled-form-wrapper .form-control').hide();
-			$(this).hide();
-			$('.labelled-form-wrapper .form-data').show();
-			$('.labelled-form-wrapper .btn-edit').css('display','block');
+		$('.profile-form-wrapper .btn-submit').click(function () {
+            var usernameVal = $('[name="username"]').val();
+            var sexVal = $('[name="sex"]').val();
+            var pwdVal = $('[name="sex"]').val();
+            var mailVal = $('[name="email"]').val();
+            var phoneVal = $('[name="phone"]').val();
+
+            if (FormUtil.checkPhone(phoneVal) == false) {
+            	alert("请输入正确的手机号");
+            }
+
+            $(this).hide();
+			$('.profile-form-wrapper .form-control').hide();
+			$('.profile-form-wrapper .form-data').show();
+			$('.profile-form-wrapper .btn-edit').css('display','block');
 			return false;
 		});
-		$('.labelled-form-wrapper .btn-edit').click(function () {
-			$('.labelled-form-wrapper .form-data').hide();
-			$(this).hide();
-			$('.labelled-form-wrapper .form-control').show();
-			$('.labelled-form-wrapper .btn-submit').show();
+		$('.profile-form-wrapper .btn-edit').click(function () {
+            $(this).hide();
+			$('.profile-form-wrapper .form-data').hide();
+			$('.profile-form-wrapper .form-control').show();
+			$('.profile-form-wrapper .btn-submit').show();
 			return false;
 		});
 	});

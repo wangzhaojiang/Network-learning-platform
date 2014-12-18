@@ -35,13 +35,9 @@ header {
     width: 100%;
     min-width: 960px;
     min-height: 80px;
-    margin-bottom: 20px;
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    z-index: 99;
     background-color: #fff;
     border-bottom: #dadfe1 1px solid;
+    box-sizing: border-box;
 }
 
 header .navigation {
@@ -83,7 +79,7 @@ header .navigation .menu-item a {
     line-height: 80px;
     text-decoration: none;
 }
-header .navigation .menu-item.fa-drop-down:after {
+header .menu-drop-down:after {
     position: absolute;
     top: 50%;
     right: 8px;
@@ -92,15 +88,30 @@ header .navigation .menu-item.fa-drop-down:after {
     font-family: FontAwesome;
     content: "\f078";
 }
-header .navigation .menu .course-drop-down {
-    width: 200px;
+header .course-drop-down-modal {
+	width: 400px;
     position: absolute;
     left: 0px;
     top: 60px;
     display: none;
 }
-header .navigation .menu .course-drop-down .arrow {
+header .course-drop-down-modal .arrow {
     margin-left: 100px;
+}
+
+header .course-drop-down-modal ul li a {
+	padding: 0 20px 0 20px;
+	display: block;
+	box-sizing: border-box;
+	line-height: 24px;
+}
+header .course-drop-down-modal ul li.active a,
+header .course-drop-down-modal ul li:active a,
+header .course-drop-down-modal ul li:hover a {
+	color: #ee7c4a;
+}
+header .course-drop-down-modal ul.course-list {
+	border-left: 1px solid #dadada;
 }
 header .navigation-right .search-input {
     width: 100px;
@@ -168,7 +179,8 @@ aside {
 
 .page-wrapper {
     position: relative;
-    margin-top: 120px;
+    padding: 40px 0 40px 0;
+    box-sizing: border-box;
 }
 
 .center-grid {
@@ -197,10 +209,10 @@ footer {
     width: 100%;
     min-width: 960px;
     min-height: 80px;
-    margin: 100px 0 0;
     text-align: center;
     background-color: #fff;
     border-top: #dadfe1 1px solid;
+    box-sizing: border-box;
 }
 footer ul {
     list-style: none;
