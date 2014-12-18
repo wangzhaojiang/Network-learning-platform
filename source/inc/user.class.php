@@ -10,7 +10,7 @@ class User{
 		$this->conn = new Nlpdb();
 	} 	
 
-	public function user_info_signin($mail,$password){
+	public function user_signin($mail,$password){
 		
 		if(empty($mail) || empty($password))
 			return false;
@@ -26,7 +26,7 @@ class User{
 			return false;
 	}
 
-	public function user_info_signup($name,$password,$mail){
+	public function user_signup($name,$password,$mail){
 
 		if(empty($name) || empty($password) || empty($mail) )
 			return 'false1';
@@ -72,7 +72,7 @@ class User{
 			return 'false2';
 	}
 */
-	public function user_info_getinfo($uid){
+	public function user_getinfo($uid){
 
 		if(!checkStr('digit',$uid)){
 			echo false;
@@ -91,7 +91,7 @@ class User{
 			return false;
 	}
 
-	public function user_info_changepassword($key,$uid){
+	public function user_changepassword($key,$uid){
 
 		if(empty($key))
 			return false;
@@ -114,7 +114,7 @@ class User{
 		}
 	}
 
-	public function user_info_getpermission($uid){
+	public function user_getpermission($uid){
 
 		if(!checkStr('digit',$uid))
 			return false;
@@ -129,7 +129,7 @@ class User{
 	}
 
 
-	public function user_info_update_user_infoinfo($uid,$mail,$school,$logo,$sign){
+	public function user_update_userinfo($uid,$mail,$school,$logo,$sign){
 
 	//	if ( checkUser($uid) )
 	//		return 'false1';
