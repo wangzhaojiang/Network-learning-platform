@@ -8,7 +8,7 @@ $user = new User();
 $mail = $_POST['mail'];
 $tag = 'mail';
 $result = $user->getinfo_x($mail,$tag);
-if($result == 'nothing' || $reuslt==false){
+if($result == 'nothing' || $result==false){
 	$com =array("status"=>false,"data"=>"该邮箱没注册!");
 	$seq = json_encode($com);
 	echo $seq;
@@ -21,7 +21,7 @@ $getpasstime = time()+24*3600;
 $str_time = (string)$getpasstime;
 $str = $userinfo['uid'].$userinfo['password'].$str_time;
 $token = md5($str);
-$url = "http://121.40.74.70/imooc/source/reset_key.php?uid=".$userinfo['uid'] . "&token=".$token."&time=".$str_time;
+$url = "http://121.40.74.70/imooc/reset_key.php?uid=".$userinfo['uid'] . "&token=".$token."&time=".$str_time;
 $time = date('Y-m-d H:i');
 
 $smtpserver = "smtp.exmail.qq.com";
