@@ -29,7 +29,7 @@ class Nlpdb{
 
 	public function query($sql_str, $sql_error = 'error')
 	{
-        var_dump($sql_str);
+        #var_dump($sql_str);
         $this->result = $this->db->query($sql_str);
         if ($this->result == false){
             echo $sql_error;

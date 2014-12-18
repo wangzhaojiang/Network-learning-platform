@@ -7,7 +7,8 @@ class Get_conf{
     }
 
     public function get_content(){
-        $file = fopen("../conf/jaker.conf", "r") or die("can't read the conf");
+        $path = dirname(dirname(__FILE__))."/conf/jaker.conf";
+        $file = fopen($path, "r") or die("can't read the conf");
         $array = array();
         while(!feof($file)){
             $line = trim(fgets($file));
