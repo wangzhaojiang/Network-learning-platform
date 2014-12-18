@@ -8,6 +8,14 @@ Network-learning-platform
  - doc目录
 
 	关于该项目的**文档**
+
+    >>SQL相关文件
+
+    >>会议记录
+
+    >>前期模块需求文档
+
+    >>接口文档
 	
  - source目录
  
