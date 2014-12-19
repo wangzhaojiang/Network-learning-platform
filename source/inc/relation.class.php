@@ -55,7 +55,7 @@ class Relation{
 
         $result = $this->conn->query($query_str);
 
-        if ($result != 'nothing'){
+        if ($result == 'nothing'){
             return array("status" => false, "error" => "you don't follow this guy");
         }
 		
@@ -99,6 +99,18 @@ class Relation{
                 return array("status" => true, "content" => null);
             }
             else{
+                $num = count($result);
+                while($num){
+                    $key = key($result);
+                    if ($this->get_relation($this->fromuid, $result[$key]['uid'])){
+                        $result[$key]['relation'] = 1;
+                    }
+                    else{
+                        $result[$key]['relation'] = 0;
+                    }
+                    next($result);
+                    $num -= 1;
+                }
 			    return array("status" => true, "content" => $result);
             
             }
@@ -119,6 +131,18 @@ class Relation{
                 return array("status" => true, "content" => null);
             }
             else{
+                $num = count($result);
+                while($num){
+                    $key = key($result);
+                    if ($this->get_relation($result[$key]['uid'])){
+                        $result[$key]['relation'] = 1;
+                    }
+                    else{
+                        $result[$key]['relation'] = 0;
+                    }
+                    next($result);
+                    $num -= 1;
+                }
                 return array("status" => true, "content" => $result);
             }
 
@@ -175,8 +199,11 @@ class Relation{
 	}
 
     //获取当前操作用户和所访问的目标用户， 操作用户是否关注目标用户
-    public function get_relation($touid){
-        $query_str ="select rid from user_relation where fromuid = $this->fromuid and touid = $touid";
+    public function get_relation($touid, $fromuid = 1000){
+        if ($fromuid == 1000){
+            $fromuid = $this->fromuid;
+        }
+        $query_str ="select rid from user_relation where fromuid = $fromuid and touid = $touid";
         $sql_error = "get_relation error";
 
         $result = $this->conn->query($query_str, $sql_error);
