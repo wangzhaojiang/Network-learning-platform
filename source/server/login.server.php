@@ -23,6 +23,7 @@ if ( $action == 'login' ) {
 		echo $com;
 		exit;
 	}
+
 	$user = new User();
 	$tag = 'mail';
 	$result = $user->getinfo_x($mail,$tag);
@@ -32,6 +33,7 @@ if ( $action == 'login' ) {
 		echo $com;
 		exit;
 	}
+
 	$row = $result[0];
 	if($password == $row['password']){
 		$_SESSION['identity'] = crypt($row['uid'],'Nlp_2014');
