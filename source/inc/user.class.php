@@ -31,16 +31,15 @@ class User{
 		if(empty($name) || empty($password) || empty($mail) )
 			return 'false1';
 		$permission = 0;
-		$password = md5($password);
 		
-		$checkArr = Array(
-			"$name"=>'chinese',
-			"$password"=>'normal',
-			"$mail"=>'mail',
-		);
+	//	$checkArr = Array(
+	//		"$name"=>'chinese',
+	//		"$password"=>'normal',
+	//		"$mail"=>'mail',
+	//	);
 
-		if(!checkArr($checkArr))
-			return 'false2';
+	//	if(!checkArr($checkArr))
+	//		return 'false2';
 		$check_mail_sql = "select mail from user_info where mail='$mail';";
 		$sql_error = "邮箱有重复";
 		$result = $this->conn->query($check_mail_sql,$sql_error);
@@ -84,7 +83,7 @@ class User{
 		$result = $this->conn->query($sql,$sql_error);
 		if($result)
 		{
-			unset($result['password']);
+			unset($result[0]['password']);
 			return $result;
 		}
 		else 
@@ -139,8 +138,8 @@ class User{
 			"$logo"=>'normal',
 			"$sign"=>'normal'
 		);
-		if( !checkArr($checkArr) )
-			return 'false2';
+//		if( !checkArr($checkArr) )
+//			return 'false2';
 
 		$sql_error = "获取用户uid失败";
 		$query_str = "SELECT * FROM user_info where uid='$uid';";
@@ -185,6 +184,12 @@ class User{
 		else if ($tag == 'uid') {
 				$sql = "select * from user_info where uid='$var';";
 				$sql_error = "通过uid查询信息失败";
+				$result = $this->conn->query($sql,$sql_error);
+				return $result;
+		}
+		else if ($tag == 'name') {
+				$sql = "select * from user_info where name='$var';";
+				$sql_error = "通过name查询信息失败";
 				$result = $this->conn->query($sql,$sql_error);
 				return $result;
 		}
