@@ -178,17 +178,24 @@ CREATE TABLE `user_relation` (
 --    mmid    INT UNSIGNED    NOT NULL,
 --    foreign key(mmid)   references message_board(mid) on delete cascade on update cascade   
 --)AUTO_INCREMENT=1, DEFAULT CHARSET=utf8; 
---
+
+
 -- --------------------------------------------------------------------------------
 -- create vedio info table
 -- [vedio_info] table name
 -- --------------------------------------------------------------------------------
 -- columns
--- [mid]        主键，不为空 ,从1开始,留言表
--- [fromuid] 	外键，是关注者，是user_info的外键 	
--- [touid] 	是外键，是被关注者，是user_info的外键
--- [content]    留言内容
--- [time]       留言时间
+-- [vid]        主键，不为空 
+-- [uid] 	外键，视频所属用户，是user_info的外键 	
+-- [vedio_name] 视频名
+-- [vedio_tag] 视频标签（后期处理）
+-- [vedio_photo] 视频插图 （可选）
+-- [vedio_sort] 视频分类
+-- [vedio_md5]  视频md5值
+-- [vedio_status]  视频审核情况
+-- [vedio_watch]    视频观看数
+-- [vedio_store]    视频大小（后期）
+-- [time]       上传时间
 -- --------------------------------------------------------------------------------
 
 DROP TABLE IF EXISTS `vedio_info`;
@@ -206,4 +213,27 @@ CREATE TABLE `vedio_info` (
     vedio_watch INT UNSIGNED,
     time    DATETIME NOT NULL,
     vedio_store INT UNSIGNED NOT NULL
+)AUTO_INCREMENT=1, DEFAULT CHARSET=utf8; 
+
+-- --------------------------------------------------------------------------------
+-- create plan table
+-- [plan] table name
+-- --------------------------------------------------------------------------------
+-- columns
+-- [pid]        主键，不为空
+-- [uid] 	外键，是操作用户 	
+-- [vid] 	是外键，是视频id
+-- [flag]   类别 0 观看记录 1 收藏 2 BOTH
+-- [time]       留言时间
+-- --------------------------------------------------------------------------------
+DROP TABLE IF EXISTS `plan`;
+
+CREATE TABLE `plan` (
+	pid INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
+	uid INT UNSIGNED  NOT NULL,
+	foreign key(uid) references user_info(uid) on delete cascade on update cascade,
+	vid INT UNSIGNED  NOT NULL,
+	foreign key(vid) references vedio_info(vid) on delete cascade on update cascade,
+    time    DATETIME NOT NULL,
+	flag INT(2) NOT NULL check(flag in (0,1,2))
 )AUTO_INCREMENT=1, DEFAULT CHARSET=utf8; 
