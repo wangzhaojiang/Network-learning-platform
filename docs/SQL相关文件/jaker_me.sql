@@ -79,18 +79,18 @@ CREATE TABLE `user_plan`(
 -- [touid] 	是外键，是接受者，是user_info的外键
 -- [status] 	是私信阅读的状态，0未读，1,已读
 -- --------------------------------------------------------------------------------
-DROP TABLE IF EXISTS `user_mail`;
-
-CREATE TABLE `user_mail` (
-	mid     INT UNSIGNED  PRIMARY KEY AUTO_INCREMENT NOT NULL, 
-	fromuid INT UNSIGNED NOT NULL,
-	time   DATETIME NOT NULL,
-	content TEXT    NOT NULL,
-	touid INT UNSIGNED NOT NULL,
-	status  INT(1)  NOT NULL CHECK(status=0 or status=1),
-	foreign key(fromuid) references user_info(uid) on update cascade,
-	foreign key(touid)  references user_info(uid) on update cascade
-)AUTO_INCREMENT=1, DEFAULT CHARSET=utf8; 
+--DROP TABLE IF EXISTS `user_mail`;
+--
+--CREATE TABLE `user_mail` (
+--	mid     INT UNSIGNED  PRIMARY KEY AUTO_INCREMENT NOT NULL, 
+--	fromuid INT UNSIGNED NOT NULL,
+--	time   DATETIME NOT NULL,
+--	content TEXT    NOT NULL,
+--	touid INT UNSIGNED NOT NULL,
+--	status  INT(1)  NOT NULL CHECK(status=0 or status=1),
+--	foreign key(fromuid) references user_info(uid) on update cascade,
+--	foreign key(touid)  references user_info(uid) on update cascade
+--)AUTO_INCREMENT=1, DEFAULT CHARSET=utf8; 
 
 -- --------------------------------------------------------------------------------
 -- create relation table
@@ -126,17 +126,17 @@ CREATE TABLE `user_relation` (
 -- --------------------------------------------------------------------------------
 
 
-DROP TABLE IF EXISTS `message_board_main`;
-
-CREATE TABLE `message_board_main` (
-	mid INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
-	fromuid INT UNSIGNED  NOT NULL,
-	touid INT UNSIGNED    NOT NULL,
-	foreign key(fromuid) references user_info(uid) on delete cascade on update cascade,
-	foreign key(touid)  references user_info(uid) on delete cascade on update cascade,
-    content TEXT    NOT NULL,
-    time    DATETIME NOT NULL
-)AUTO_INCREMENT=1, DEFAULT CHARSET=utf8; 
+--DROP TABLE IF EXISTS `message_board_main`;
+--
+--CREATE TABLE `message_board_main` (
+--	mid INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
+--	fromuid INT UNSIGNED  NOT NULL,
+--	touid INT UNSIGNED    NOT NULL,
+--	foreign key(fromuid) references user_info(uid) on delete cascade on update cascade,
+--	foreign key(touid)  references user_info(uid) on delete cascade on update cascade,
+--    content TEXT    NOT NULL,
+--    time    DATETIME NOT NULL
+--)AUTO_INCREMENT=1, DEFAULT CHARSET=utf8; 
 
 -- --------------------------------------------------------------------------------
 -- create message board reply table
@@ -150,19 +150,19 @@ CREATE TABLE `message_board_main` (
 -- [time]       留言时间
 -- --------------------------------------------------------------------------------
 
-DROP TABLE IF EXISTS `message_board_reply`;
-
-CREATE TABLE `message_board_reply` (
-	mid INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
-	fromuid INT UNSIGNED  NOT NULL,
-	touid INT UNSIGNED    NOT NULL,
-	foreign key(fromuid) references user_info(uid) on delete cascade on update cascade,
-	foreign key(touid)  references user_info(uid) on delete cascade on update cascade,
-    content TEXT    NOT NULL,
-    time    DATETIME NOT NULL,
-    mmid    INT UNSIGNED    NOT NULL,
-    foreign key(mmid)   references  message_board_main(mid) on delete cascade on update cascade 
-)AUTO_INCREMENT=1, DEFAULT CHARSET=utf8; 
+--DROP TABLE IF EXISTS `message_board_reply`;
+--
+--CREATE TABLE `message_board_reply` (
+--	mid INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
+--	fromuid INT UNSIGNED  NOT NULL,
+--	touid INT UNSIGNED    NOT NULL,
+--	foreign key(fromuid) references user_info(uid) on delete cascade on update cascade,
+--	foreign key(touid)  references user_info(uid) on delete cascade on update cascade,
+--    content TEXT    NOT NULL,
+--    time    DATETIME NOT NULL,
+--    mmid    INT UNSIGNED    NOT NULL,
+--    foreign key(mmid)   references  message_board_main(mid) on delete cascade on update cascade 
+--)AUTO_INCREMENT=1, DEFAULT CHARSET=utf8; 
 
 --
 --DROP TABLE IF EXISTS `message_board_reply`;
@@ -179,3 +179,31 @@ CREATE TABLE `message_board_reply` (
 --    foreign key(mmid)   references message_board(mid) on delete cascade on update cascade   
 --)AUTO_INCREMENT=1, DEFAULT CHARSET=utf8; 
 --
+-- --------------------------------------------------------------------------------
+-- create vedio info table
+-- [vedio_info] table name
+-- --------------------------------------------------------------------------------
+-- columns
+-- [mid]        主键，不为空 ,从1开始,留言表
+-- [fromuid] 	外键，是关注者，是user_info的外键 	
+-- [touid] 	是外键，是被关注者，是user_info的外键
+-- [content]    留言内容
+-- [time]       留言时间
+-- --------------------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `vedio_info`;
+
+CREATE TABLE `vedio_info` (
+	vid INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
+	uid INT UNSIGNED  NOT NULL,
+    vedio_name CHAR(50) NOT NULL,
+	foreign key(uid) references user_info(uid) on delete cascade on update cascade,
+    vedio_tag CHAR(10),
+    vedio_photo CHAR(20),
+    vedio_sort INT UNSIGNED NOT NULL,
+    vedio_md5 CHAR(128) NOT NULL,
+    vedio_status INT UNSIGNED NOT NULL,
+    vedio_watch INT UNSIGNED,
+    time    DATETIME NOT NULL,
+    vedio_store INT UNSIGNED NOT NULL
+)AUTO_INCREMENT=1, DEFAULT CHARSET=utf8; 
