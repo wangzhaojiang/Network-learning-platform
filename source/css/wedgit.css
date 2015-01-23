@@ -186,7 +186,6 @@ input:-webkit-autofill {
     border: 1px solid #cccccc;
 }
 textarea.form-control {
-    height: auto;
 	padding-top: 10px;
 	padding-bottom: 10px;
 	resize: none;
@@ -210,6 +209,7 @@ textarea.form-control {
     border-top: 1px solid #dadfe1;
 }
 .form-control-group {
+	height: 38px;
 	margin-bottom: 28px;
 	display: block;
 }

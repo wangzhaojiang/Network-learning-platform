@@ -14,14 +14,14 @@ $relation = new Relation(1004);
 
 $result = $relation->cat_relation(0);
 
-if( $result['status'] == false || $result['status'] == 'nothing' ){
-	$tpl->assign('user_follow',array());
+
+if( $result['status'] == false && $result['status'] == 'nothing' ){
+	$tpl->assign('user_follow', array());
 }
-else if( $result['status'] == 'nothing' || $result['status'] == true ){
-	$tpl->assign('user_follow',$result['content']);
+else {
+	$tpl->assign('user_follow', $result['content']);
 }
 
-print_r($result['content']);
 
 $tpl->display('user_follow.tpl');
 

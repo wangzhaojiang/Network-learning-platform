@@ -1,0 +1,66 @@
+.followed-page  {
+    margin-top: -20px;
+    border: 1px solid #dadfe1;
+    box-shadow: #c3b880 0px 0px 5px;
+}
+.user-relation-number {
+    border-bottom: 1px solid #dadfe1;
+    padding: 10px 10px;
+}
+.followed-n {
+    font-size: 14px;
+}
+.user-relation-info {
+    display: block;
+}
+.user-relation-page-info {
+    padding: 12px 0px 12px 0px;
+    position: relative;
+    margin-left: 14px;
+    margin-right: 14px;
+    border-bottom: 1px solid #dadfe1;
+}
+.user-relation-button {
+    position: absolute;
+    right: 10px;
+    top: 18px;
+}
+.relat-btn {
+    background: #57ca8e;
+    border-bottom-color: #39b574;
+    width: 70px;
+    height: 25px;
+    color: #f6fffa;
+    border: 1px solid #dddddd;
+    font-size: 13px;
+    border-radius: 3px;
+    display: block;
+    cursor: pointer;
+}
+.user-relation-logo-display {
+    border-radius: inherit;
+    float: left;
+    text-decoration: none;
+}
+.user-relation-logo-display img {
+    width: 50px;
+    height: 50px;
+    margin-top: 15px;
+    border-radius:50%;
+    verflow:hidden;
+}
+.user-relation-header {
+    width: 560px;
+    padding: 10px ;
+    float: left;
+}
+.user-relation-body {
+    color:#adadad;
+}
+.user-relation-body a {
+    display: block;
+    color: #adadad;
+}
+.user-sign {
+    color: #adadad;
+}
