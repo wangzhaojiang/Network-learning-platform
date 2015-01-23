@@ -205,6 +205,7 @@ CREATE TABLE `vedio_info` (
 	uid INT UNSIGNED  NOT NULL,
     vedio_name CHAR(50) NOT NULL,
 	foreign key(uid) references user_info(uid) on delete cascade on update cascade,
+    vedio_url CHAR(30) NOT NULL,
     vedio_tag CHAR(10),
     vedio_photo CHAR(20),
     vedio_sort INT UNSIGNED NOT NULL,
