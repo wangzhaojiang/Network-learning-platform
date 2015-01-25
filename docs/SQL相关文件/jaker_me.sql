@@ -238,3 +238,4 @@ CREATE TABLE `plan` (
     time    DATETIME NOT NULL,
 	flag INT(2) NOT NULL check(flag in (0,1,2))
 )AUTO_INCREMENT=1, DEFAULT CHARSET=utf8; 
+--
