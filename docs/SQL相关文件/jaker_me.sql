@@ -55,17 +55,17 @@ CREATE TABLE `user_info` (
 -- [process] 	学习进度，上一次观看到视频的那个地方
 -- --------------------------------------------------------------------------------
 
-DROP TABLE IF EXISTS `user_plan`;
-
-CREATE TABLE `user_plan`(
-	id  int UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
-	type INT(2) NOT NULL check(type in (0,1,2)),
-	uid int UNSIGNED NOT NULL,
-	time DATETIME 	NOT NULL ,
-	vid INT NOT NULL,
-	process DATETIME NOT NULL,
-	foreign key(uid) references user_info(uid) on delete cascade on update cascade
-)AUTO_INCREMENT=1,DEFAULT CHARSET=utf8;
+--DROP TABLE IF EXISTS `user_plan`;
+--
+--CREATE TABLE `user_plan`(
+--	id  int UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
+--	type INT(2) NOT NULL check(type in (0,1,2)),
+--	uid int UNSIGNED NOT NULL,
+--	time DATETIME 	NOT NULL ,
+--	vid INT NOT NULL,
+--	process DATETIME NOT NULL,
+--	foreign key(uid) references user_info(uid) on delete cascade on update cascade
+--)AUTO_INCREMENT=1,DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------------------------------
 -- create mail table
@@ -86,9 +86,7 @@ CREATE TABLE `user_plan`(
 --	fromuid INT UNSIGNED NOT NULL,
 --	time   DATETIME NOT NULL,
 --	content TEXT    NOT NULL,
---	touid INT UNSIGNED NOT NULL,
---	status  INT(1)  NOT NULL CHECK(status=0 or status=1),
---	foreign key(fromuid) references user_info(uid) on update cascade,
+--	touid INT UNSIGNED NOT NULL, --	status  INT(1)  NOT NULL CHECK(status=0 or status=1), --	foreign key(fromuid) references user_info(uid) on update cascade,
 --	foreign key(touid)  references user_info(uid) on update cascade
 --)AUTO_INCREMENT=1, DEFAULT CHARSET=utf8; 
 
@@ -210,8 +208,8 @@ CREATE TABLE `vedio_info` (
     vedio_photo CHAR(20),
     vedio_sort INT UNSIGNED NOT NULL,
     vedio_md5 CHAR(128) NOT NULL,
-    vedio_status INT UNSIGNED NOT NULL,
-    vedio_watch INT UNSIGNED,
+    vedio_status INT(1) NOT NULL check(vedio_status in (0,1)),
+    vedio_watch INT UNSIGNED DEFAULT 0,
     time    DATETIME NOT NULL,
     vedio_store INT UNSIGNED NOT NULL
 )AUTO_INCREMENT=1, DEFAULT CHARSET=utf8; 
