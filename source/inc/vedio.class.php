@@ -11,7 +11,7 @@ class Vedio{
 
     #观看视频
     public function watch_vedio($vid, $fromuid = 0){
-        $query_str = "select vedio_url from vedio_info where vid = $vid";
+        $query_str = "select vid, uid, vedio_name, vedio_tag, vedio_desc, vedio_photo, vedio_sort, vedio_watch, time from vedio_info where vid = '$vid'";
         
         $sql_error = "watch_vedio error";
 
@@ -21,7 +21,7 @@ class Vedio{
             return array("status" => false, "error" => "watch vedio error");
         }
         else if ($result == 'nothing'){
-            return array("status" => true, "content" => null);
+            return array("status" => true, "content" => array());
         }
         else{
             #观看数增加
@@ -57,7 +57,7 @@ class Vedio{
             return array("status" => false, "error" => "cat vedio error");
         }
         else if ($result == 'nothing'){
-            return array("status" => true, "content" => null);
+            return array("status" => true, "content" => array());
         }
         else{
             return array("status" => true, "content" => $result);
@@ -65,6 +65,24 @@ class Vedio{
         }
 
     }
-}
 
+    public function watch_people($vid){
+        $query_str = "select uid from plan order by time desc";
+
+        $sql_error = "watch_people error";
+
+        $result = $this->conn->query($query_str, $sql_error);
+
+        if ($result == false){
+            return array("status" => false, "error" => "cat vedio error");
+        }
+        else if ($result == 'nothing'){
+            return array("status" => true, "content" => array());
+        }
+        else{
+            return array("status" => true, "content" => $result);
+        }
+    }
+
+}
 ?>
