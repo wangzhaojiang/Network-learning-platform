@@ -36,8 +36,8 @@ CREATE TABLE `user_info` (
 	password    CHAR(32)  NOT NULL, 
 	sex         INT(1)   NOT NULL  CHECK(sex=0 or sex=1), 
 	mail        CHAR(50)  NOT NULL UNIQUE, 
-	school      CHAR(128) NOT NULL, 
-	logo        CHAR(128) NOT NULL,
+	school      CHAR(128)  NULL, 
+	logo        CHAR(128)  NULL,
 	sign 	    VARCHAR(150)
 ) AUTO_INCREMENT=1000, DEFAULT CHARSET=utf8; 
 
