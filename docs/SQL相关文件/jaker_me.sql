@@ -206,6 +206,7 @@ CREATE TABLE `vedio_info` (
     vedio_url CHAR(30) NOT NULL,
     vedio_tag CHAR(10),
     vedio_photo CHAR(20),
+    vedio_desc VARCHAR(512),
     vedio_sort INT UNSIGNED NOT NULL,
     vedio_md5 CHAR(128) NOT NULL,
     vedio_status INT(1) NOT NULL check(vedio_status in (0,1)),
